@@ -1,34 +1,12 @@
 <?php 
 
 require 'functions.php';
-
-// Removes query strings attached on it
-$uri = parse_url($_SERVER['REQUEST_URI'])['path'];
-
-$routes = [
-    '/' => 'controllers/index.php',
-    '/about' => 'controllers/about.php',
-    '/contact' => 'controllers/contact.php'
-];
-
-function routeToController($uri, $routes){
-
-    if(array_key_exists($uri, $routes)){
-        require $routes[$uri];
-    } else {
-        abort();
-    }
-}
+require 'router.php';
+require 'Database.php';
 
 
-function abort($code = 404)
-{
-    http_response_code($code);
-
-    require 'views/'. $code . '.php';
-
-    die();
-}
+$db = new Database();
+$posts = $db->query("SELECT * FROM posts");
 
 
-routeToController($uri, $routes);
+dd($posts);
