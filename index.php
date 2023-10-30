@@ -1,16 +1,19 @@
 <?php 
 
 require 'functions.php';
-require 'router.php';
 require 'Database.php';
-$config = require 'config.php';
-
-$db = new Database($config['databse']);
+require 'router.php';
 
 
-$id = $_GET['user_id'];
-$query= "SELECT * FROM notes WHERE user_id = {$id}";
+// Pericolo di SQL Injection se passiamo direttamente come parametro un input passato dall'utente
+// $id = $_GET['user_id'];
+// $query= "SELECT * FROM notes WHERE user_id = {$id}"; */ 
 
-$posts = $db->query($query)->fetchAll();
+//Utilizziamo una wildcard(:id) od un segnaposto (?) per evitare l'injection
+/* $id = $_GET['id'];
+$query= "SELECT * FROM notes WHERE id = :id";  
 
-dd($posts);
+
+$posts = $db->query($query, [':id' => $id])->fetchAll(); */
+//Se usiamo un segnaposto basta passare un array con [$id];
+
