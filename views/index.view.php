@@ -7,6 +7,7 @@
     </div>
 </main>
 
+<?php require('partials/section.php') ?>
 <?php require('partials/footer.php') ?>
 
 
