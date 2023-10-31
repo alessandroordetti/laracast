@@ -16,7 +16,9 @@
         <ul>
             <?php foreach ($notes as $note) : ?>
                 <li class="my-8">
-                    <a href="/note?id=<?php echo $note['id'] ?>"><?php echo $note['body'] ?></a>
+                    <a href="/note?id=<?php echo $note['id'] ?>">
+                        <?php echo htmlspecialchars($note['body']) ?>
+                    </a>
                 </li>
             <?php endforeach ?>
         </ul>
