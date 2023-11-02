@@ -1,5 +1,7 @@
 <?php 
 
+require('Validator.php');
+
 $config = require 'config.php';
 
 $db = new Database($config['database']);
@@ -9,8 +11,8 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
    $errors = [];
 
 
-   if(strlen($_POST['body']) === 0){
-      $errors['body'] = "Campo obbligatorio mancante";
+   if(! Validator::string($_POST['body'])){
+      $errors['body'] = "The note doesn't fit requirements :(";
    }
 
    if(empty($errors)){
