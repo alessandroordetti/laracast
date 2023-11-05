@@ -1,5 +1,5 @@
-<?php require('views/partials/head.php') ?>
-<?php require('views/partials/nav.php') ?>
+<?php view('partials/head.php') ?>
+<?php view('partials/nav.php') ?>
 
 <main>
     <div class="mx-auto max-w-7xl py-6 px-4 sm:px-6 lg:px-8">
@@ -11,8 +11,6 @@
             </p>
         </div>
 
-
-        
         <ul>
             <?php foreach ($notes as $note) : ?>
                 <li class="my-8">
@@ -23,8 +21,7 @@
             <?php endforeach ?>
         </ul>
 
-
     </div>
 </main>
 
-<?php require('views/partials/footer.php') ?>
+<?php view('partials/footer.php') ?>

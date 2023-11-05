@@ -1,5 +1,6 @@
-<?php require('partials/head.php') ?>
-<?php require('partials/nav.php') ?>
+<?php view('partials/head.php') ?>
+<?php view('partials/nav.php') ?>
+
 
 <main>
     <div class="mx-auto max-w-7xl py-6 px-4 sm:px-6 lg:px-8">
@@ -7,7 +8,7 @@
     </div>
 </main>
 
-<?php require('partials/footer.php') ?>
+<?php view('partials/footer.php') ?>
 
 
 VipD6HJDWDZ8
