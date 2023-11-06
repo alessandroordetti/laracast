@@ -10,8 +10,6 @@ $errors = [];
 
 if($_SERVER['REQUEST_METHOD'] === 'POST'){
 
-
-
    if(! Validator::string($_POST['body'])){
       $errors['body'] = "The note doesn't fit requirements :(";
    }

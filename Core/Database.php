@@ -1,5 +1,9 @@
 <?php 
 
+namespace Core; // Ogni referenza alle classi andrà a cercare nella cartella Core
+
+use PDO; // In questo modo, PDO (classe presente all'interno di PHP) viene cercata NON all'interno del namespace
+
 class Database {
 
     public $connection;

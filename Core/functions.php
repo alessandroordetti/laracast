@@ -27,7 +27,7 @@ function authorize($condition, $status = Response::FORBIDDEN)
 
 function base_path($path)
 {
-    return BASE_PATH . $path;
+    return BASE_PATH . $path; //base_path corrisponde alla cartella laracast
 }
 
 function view($path, $attributes= [])
