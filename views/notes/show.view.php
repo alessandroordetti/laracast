@@ -7,6 +7,11 @@
 
         <?php echo htmlspecialchars($note['body']) ?>
     </div>
+
+    <div class="mx-auto max-w-7xl py-6 px-4 sm:px-6 lg:px-8">
+        <a href="" class="py-2">Delete</a>
+    </div>
 </main>
+
 
 <?php view('partials/footer.php') ?>
