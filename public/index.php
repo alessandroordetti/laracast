@@ -2,7 +2,6 @@
 
 const BASE_PATH = __DIR__ . '/../';
 
-
 require BASE_PATH . 'Core/functions.php';
 
 spl_autoload_register(function($class){
@@ -13,18 +12,15 @@ spl_autoload_register(function($class){
 
 /* require base_path('Database.php');
 require base_path('Response.php'); */
-require base_path('Core/router.php');
+$router = new \Core\Router();
 
+$routes = require base_path('routes.php');
 
-// Pericolo di SQL Injection se passiamo direttamente come parametro un input passato dall'utente
-// $id = $_GET['user_id'];
-// $query= "SELECT * FROM notes WHERE user_id = {$id}"; */ 
+// Removes query strings attached on it
+$uri = parse_url($_SERVER['REQUEST_URI'])['path'];
 
-//Utilizziamo una wildcard(:id) od un segnaposto (?) per evitare l'injection
-/* $id = $_GET['id'];
-$query= "SELECT * FROM notes WHERE id = :id";  
+$method = $_POST['_method'] ?? $_SERVER['REQUEST_METHOD'];
 
+$router->route($uri, $method);
 
-$posts = $db->query($query, [':id' => $id])->fetchAll(); */
-//Se usiamo un segnaposto basta passare un array con [$id];
 
