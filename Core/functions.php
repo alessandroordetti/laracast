@@ -27,6 +27,15 @@ function authorize($condition, $status = Response::FORBIDDEN)
     }
 }
 
+function abort($status = 404)
+{
+    http_response_code($status);
+
+    require base_path("views/" . $status . ".php");
+
+    die();
+}
+
 function base_path($path)
 {
     return BASE_PATH . $path; //base_path corrisponde alla cartella laracast
