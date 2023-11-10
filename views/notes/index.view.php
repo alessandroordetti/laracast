@@ -15,9 +15,14 @@
         <ul>
             <?php foreach ($notes as $note) : ?>
                 <li class="my-8">
-                    <a href="/note?id=<?php echo $note['id'] ?>">
-                        <?php echo htmlspecialchars($note['body']) ?>
-                    </a>
+                    <div class="flex justify-between">
+                        <a href="/note?id=<?php echo $note['id'] ?>">
+                            <?php echo htmlspecialchars($note['body']) ?>
+                        </a>
+
+                        <span class="<?= $note['user_id'] == 1 ? 'underline ' : '' ?>"> Written by <?= $note['user_id'] == 1 ? 'You' : $note['name'] ?></span>
+                    </div>
+
                 </li>
             <?php endforeach ?>
         </ul>

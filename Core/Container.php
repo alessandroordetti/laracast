@@ -9,7 +9,6 @@ class Container
     return new Database($config['database']);) */
     protected $bindings = [];  
     
-    
     public function bind($key, $resolver) // Per aggiungere al service container 
     {
         $this->bindings[$key] = $resolver;
