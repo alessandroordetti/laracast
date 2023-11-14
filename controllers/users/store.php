@@ -36,5 +36,13 @@ if($user){
         'email' => $email,
         'password' => $password
     ]);
+
+
+    $_SESSION['user'] = [
+        'email' => $email
+    ];
+
+    header('location: /');
+    exit();
 }
 

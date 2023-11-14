@@ -20,7 +20,7 @@
                             <?php echo htmlspecialchars($note['body']) ?>
                         </a>
 
-                        <span class="<?= $note['user_id'] == 1 ? 'underline ' : '' ?>"> Written by <?= $note['user_id'] == 1 ? 'You' : $note['name'] ?></span>
+                        <!-- <span class="<?= $note['user_id'] == 1 ? 'underline ' : '' ?>"> Written by <?= $note['user_id'] == 1 ? 'You' : $note['name'] ?></span> -->
                     </div>
 
                 </li>

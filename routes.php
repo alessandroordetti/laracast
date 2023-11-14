@@ -6,7 +6,7 @@ $router->get('/about', 'controllers/about.php');
 $router->get('/contact', 'controllers/contact.php');
 
 /* READ ROUTES */
-$router->get('/notes', 'controllers/notes/index.php');
+$router->get('/notes', 'controllers/notes/index.php')->only('auth');
 $router->get('/note', 'controllers/notes/show.php');
 
 /* CREATE ROUTES */
@@ -21,5 +21,5 @@ $router->patch('/note', 'controllers/notes/update.php');
 $router->delete('/note', 'controllers/notes/destroy.php');
 
 /* REGISTRATION ROUTES */
-$router->get('/register', 'controllers/users/register.php');
+$router->get('/register', 'controllers/users/register.php')->only('guest');
 $router->post('/register', 'controllers/users/store.php');
