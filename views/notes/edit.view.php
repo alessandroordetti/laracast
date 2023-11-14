@@ -5,7 +5,10 @@
     <div class="mx-auto max-w-7xl py-6 px-4 sm:px-6 lg:px-8">
         <h1 class="mb-5 text-center"><b>Edit note</b></h1>
         
-        <form method="POST" action="/notes">
+        <form method="POST" action="/note">
+            <input type="hidden" name="_method" value="PATCH">
+            <input type="hidden" name="id" value="<?= $note['id'] ?>">
+            
             <div class="space-y-12">
                 <div class="border-b border-gray-900/10 pb-12">
                     <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">

@@ -24,7 +24,7 @@
                             </div>
 
                             <?php if(isset($errors['body'])) : ?>
-                                <?php dd ($errors['body']) ?>
+                                <?php echo ($errors['body']) ?>
                             <?php endif ?>
                             <p class="mt-3 text-sm leading-6 text-gray-600">Write a few sentences about yourself.</p>
                         </div>
