@@ -5,9 +5,6 @@
     <div class="mx-auto max-w-7xl py-6 px-4 sm:px-6 lg:px-8">
         <h1 class="mb-5 text-center"><b>Create a Note</b></h1>
 
-        <?php if(isset($_SESSION)){ ?>
-            <?php dd($_SESSION) ?>
-        <?php } ?>
 
         <form method="POST" action="/notes">
             <div class="space-y-12">

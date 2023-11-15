@@ -3,7 +3,7 @@
 use Core\App;
 use Core\Database;
 
-$db = App::resolve(Database::class);
+$db = App::resolve(Database::class); // Database::class può essere scritto al posto del full path per la dipendenza
 
 $currentUserId = 1;
 
