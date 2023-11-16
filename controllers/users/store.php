@@ -37,10 +37,19 @@ if($user){
         'password' => password_hash($password, PASSWORD_BCRYPT)
     ]);
 
+    if($email == 'alessandro.ord@gmail.com'){
+        $_SESSION['admin'] = [
+            'email' => $email
+        ];
 
-    $_SESSION['user'] = [
-        'email' => $email
-    ];
+        header('location: /admin-index');
+        exit();
+    } else {
+        $_SESSION['user'] = [
+            'email' => $email
+        ];
+    }
+    
 
     header('location: /');
     exit();

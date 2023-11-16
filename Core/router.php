@@ -18,7 +18,7 @@ class Router {
             'middleware' => null
         ];
 
-        return $this;
+        return $this; // Facendo ritornare l'istanza dell'oggetto router possiamo continuare a richiamare e concatenare altri metodi 
     }
 
     public function get($uri, $controller)
@@ -48,8 +48,9 @@ class Router {
 
     public function only($key)
     {
-        $this->routes[array_key_last($this->routes)]['middleware'] = $key;
+        $this->routes[array_key_last($this->routes)]['middleware'] = $key; // Prendiamo l'ultimo elemento nell'array routes e alla chiave 'middleware' diamo valore $key
 
+        /* dd($this->routes); */
         return $this;
     }
 

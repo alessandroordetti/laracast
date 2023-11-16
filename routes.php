@@ -23,3 +23,6 @@ $router->delete('/note', 'controllers/notes/destroy.php');
 /* REGISTRATION ROUTES */
 $router->get('/register', 'controllers/users/register.php')->only('guest');
 $router->post('/register', 'controllers/users/store.php');
+
+/* ADMIN PANEL */
+$router->get('/admin-index', 'controllers/admin/index.php')->only('admin');
