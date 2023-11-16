@@ -1,5 +1,7 @@
 <?php 
 
+require 'vendor/autoload.php';
+
 session_start(); // Possiamo salvare dei dati temporaneamente che vengono salvati fino a che non viene chiuso il broswer.
 
 const BASE_PATH = __DIR__ . '/../'; // Corrissponde alla root del progetto

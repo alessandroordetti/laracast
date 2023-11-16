@@ -7,9 +7,11 @@
         <div class="flex justify-between">
             <h1 class="my-4 ">Hello, Welcome to the <b>notes</b> page.</h1>
             
-            <p>
-                <a href="/notes/create" class="text-white hover:underline p-1 bg-blue-700 rounded">Create Note</a>
-            </p>
+            <?php if(isset($_SESSION['auth'])) : ?>
+                <p>
+                    <a href="/notes/create" class="text-white hover:underline p-1 bg-blue-700 rounded">Create Note</a>
+                </p>
+            <?php endif; ?>
         </div>
 
         <ul>

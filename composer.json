@@ -1,0 +1,17 @@
+{
+    "name": "ale.ordetti/laracast",
+    "autoload": {
+        "psr-4": {
+            "AleOrdetti\\Laracast\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "alessandroordetti",
+            "email": "alessandro.ordetti@gmail.com"
+        }
+    ],
+    "require": {
+        "fzaninotto/faker": "^1.5"
+    }
+}
