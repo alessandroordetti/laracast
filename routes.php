@@ -1,5 +1,6 @@
 <?php 
 
+
 /* BASIC ROUTES */
 $router->get('/', 'controllers/index.php');
 $router->get('/about', 'controllers/about.php');
@@ -26,3 +27,6 @@ $router->post('/register', 'controllers/users/store.php');
 
 /* ADMIN PANEL */
 $router->get('/admin-index', 'controllers/admin/index.php')->only('admin');
+
+/* RUN FAKE DATA QUERY */
+$router->get('/run-fake-migration', 'controllers/migrations/index.php')->only('admin');

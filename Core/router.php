@@ -2,6 +2,7 @@
 
 namespace Core;
 
+use Closure;
 use Core\Middleware\Auth;
 use Core\Middleware\Guest;
 use Core\Middleware\Middleware;
@@ -59,6 +60,11 @@ class Router {
         foreach($this->routes as $route){ 
             if($route['uri'] === $uri && $route['method'] === strtoupper($method)){
                 
+                // Check if the controller is a Closure, if so, execute it
+                if ($route['controller'] instanceof Closure) {
+                return call_user_func($route['controller']);
+                }
+
                 Middleware::resolve($route['middleware']);
                 
                 return require base_path($route['controller']);

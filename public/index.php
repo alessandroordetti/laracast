@@ -1,12 +1,12 @@
 <?php 
 
-require 'vendor/autoload.php';
-
 session_start(); // Possiamo salvare dei dati temporaneamente che vengono salvati fino a che non viene chiuso il broswer.
 
 const BASE_PATH = __DIR__ . '/../'; // Corrissponde alla root del progetto
 
 require BASE_PATH . 'Core/functions.php'; // Richiedi il file functions per usarle in tutta l'app
+
+require_once __DIR__ . '/../vendor/autoload.php';
 
 spl_autoload_register(function($class){
     $class = str_replace('\\', '/', $class);
@@ -14,6 +14,7 @@ spl_autoload_register(function($class){
 });
 
 require base_path('bootstrap.php');
+
 
 $router = new \Core\Router(); // Path assoluto per andare ad instanziare il Router
 

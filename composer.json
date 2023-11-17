@@ -2,7 +2,7 @@
     "name": "ale.ordetti/laracast",
     "autoload": {
         "psr-4": {
-            "AleOrdetti\\Laracast\\": "src/"
+            "AleOrdetti\\Laracast\\": "AleOrdetti\\Laracast"
         }
     },
     "authors": [
@@ -12,6 +12,6 @@
         }
     ],
     "require": {
-        "fzaninotto/faker": "^1.5"
+        "fakerphp/faker": "^1.23"
     }
 }
