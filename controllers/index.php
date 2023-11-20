@@ -1,5 +1,5 @@
 <?php 
 
-$_SESSION['name'] = 'ciao';
+$_SESSION['name'] = 'index';
 
 view('index.view.php');
