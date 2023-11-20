@@ -4,6 +4,7 @@ use Core\App;
 use Core\Database;
 use Core\Validator;
 
+
 $email = $_POST['email'];
 $password = $_POST['password'];
 
@@ -45,10 +46,10 @@ if($user){
         header('location: /admin-index');
         exit();
     } else {
-        $_SESSION['user'] = [
-            'email' => $email
-        ];
+        login('dsaadsada', $email);
     }
+
+    dd($_SESSION);
     
 
     header('location: /');

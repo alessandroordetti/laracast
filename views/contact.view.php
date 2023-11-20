@@ -7,5 +7,4 @@
     </div>
 </main>
 
-<?php view('partials/section.php') ?>
 <?php view('partials/footer.php') ?>

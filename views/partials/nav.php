@@ -39,7 +39,8 @@
                                 </div>
                             <?php else : ?>
                                 <div>
-                                    <a href="/register" class="text-white rounded-md px-3 py-2 text-sm font-medium" >Sign In</a>
+                                    <a href="/login" class="text-white rounded-md px-3 py-2 text-sm font-medium" >Log in</a>
+                                    <a href="/register" class="text-white rounded-md px-3 py-2 text-sm font-medium" >Register</a>
                                 </div>
                             <?php endif ; ?>
 

@@ -1,6 +1,7 @@
 <?php 
 
 use Core\Response;
+use Core\Middleware\Middleware;
 
 function dd($value)
 {
@@ -46,4 +47,16 @@ function view($path, $attributes= [])
     extract($attributes);
     
     require base_path('views/' . $path);
+}
+
+function login(string $sessionName, string $userEmail)
+{
+    /* La variabile di sessione user è uguale ad un array associativo con chiave email e valore $user['email'] */
+    $_SESSION[$sessionName] = [
+        'email' => $userEmail
+    ];
+
+    if(! in_array($sessionName, Middleware::MAP)){
+        dd('No mactch');
+    }
 }

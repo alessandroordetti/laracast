@@ -7,7 +7,7 @@ $router->get('/about', 'controllers/about.php');
 $router->get('/contact', 'controllers/contact.php');
 
 /* READ ROUTES */
-$router->get('/notes', 'controllers/notes/index.php')->only('auth')->only('admin');
+$router->get('/notes', 'controllers/notes/index.php')->only('auth');
 $router->get('/note', 'controllers/notes/show.php');
 
 /* CREATE ROUTES */
@@ -24,6 +24,10 @@ $router->delete('/note', 'controllers/notes/destroy.php');
 /* REGISTRATION ROUTES */
 $router->get('/register', 'controllers/users/register.php')->only('guest');
 $router->post('/register', 'controllers/users/store.php');
+
+/* LOGIN ROUTES */
+$router->get('/login', 'controllers/login/index.php')->only('guest');
+$router->post('/login', 'controllers/login/store.php')->only('guest');
 
 /* ADMIN PANEL */
 $router->get('/admin-index', 'controllers/admin/index.php')->only('admin');
