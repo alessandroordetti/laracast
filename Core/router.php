@@ -3,8 +3,6 @@
 namespace Core;
 
 use Closure;
-use Core\Middleware\Auth;
-use Core\Middleware\Guest;
 use Core\Middleware\Middleware;
 
 class Router {
@@ -62,7 +60,7 @@ class Router {
                 
                 // Check if the controller is a Closure, if so, execute it
                 if ($route['controller'] instanceof Closure) {
-                return call_user_func($route['controller']);
+                    return call_user_func($route['controller']);
                 }
 
                 Middleware::resolve($route['middleware']);

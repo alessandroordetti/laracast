@@ -20,6 +20,19 @@ function customExceptionHandler($exception) {
 
 set_exception_handler("customExceptionHandler");
 
+function checkForFatalError() {
+    $error = error_get_last();
+    if ($error && ($error['type'] === E_ERROR || $error['type'] === E_PARSE || $error['type'] === E_CORE_ERROR || $error['type'] === E_COMPILE_ERROR)) {
+        // Handle the fatal error
+        $message = "<b>Fatal Error:</b> [{$error['type']}] {$error['message']} - {$error['file']}:{$error['line']}" . PHP_EOL;
+        error_log($message, 3, "../Errors/error_logs.txt");
+        // Display a user-friendly error message
+        echo "A critical error occurred. Please try again later.";
+    }
+}
+
+register_shutdown_function('checkForFatalError');
+
 // Your code here
 try {
     echo $reswrewr; // This will cause a Notice: Undefined variable error

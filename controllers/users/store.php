@@ -46,12 +46,9 @@ if($user){
         header('location: /admin-index');
         exit();
     } else {
-        login('dsaadsada', $email);
+        login('auth', $email);
     }
-
-    dd($_SESSION);
     
-
     header('location: /');
     exit();
 }

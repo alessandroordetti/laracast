@@ -56,7 +56,7 @@ function login(string $sessionName, string $userEmail)
         'email' => $userEmail
     ];
 
-    if(! in_array($sessionName, Middleware::MAP)){
-        dd('No mactch');
+    if (!array_key_exists($sessionName, Middleware::MAP)) {
+        throw new Exception("No match for middleware: $sessionName");
     }
 }
