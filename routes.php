@@ -7,7 +7,7 @@ $router->get('/about', 'controllers/about.php');
 $router->get('/contact', 'controllers/contact.php');
 
 /* READ ROUTES */
-$router->get('/notes', 'controllers/notes/index.php')->only('auth');
+$router->get('/notes', 'controllers/notes/index.php');
 $router->get('/note', 'controllers/notes/show.php');
 
 /* CREATE ROUTES */

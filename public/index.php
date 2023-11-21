@@ -28,3 +28,7 @@ $method = $_POST['_method'] ?? $_SERVER['REQUEST_METHOD'];
 // Se esiste la variabile globale $_POST['_method'], $uri avrà quel valore altrimenti avrà il valore di $_SERVER['REQUEST_METHOD']
 
 $router->route($uri, $method);
+
+
+
+
