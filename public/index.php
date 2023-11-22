@@ -17,7 +17,6 @@ require base_path('bootstrap.php');
 
 
 $router = new \Core\Router(); // Path assoluto per andare ad instanziare il Router
-
 $routes = require base_path('routes.php'); // Richiediamo tutte le routes del nostro progetto
 
 // Removes query strings attached on it

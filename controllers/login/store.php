@@ -8,15 +8,23 @@ $email = $_POST['email'];
 
 $db = App::resolve(Database::class);
 
-$email = $db->query("SELECT * FROM users WHERE email = :email", [
+$user = $db->query("SELECT * FROM users WHERE email = :email", [
     ':email' => $email
 ])->get();
 
-if($email){
-    $_SESSION['user'] = [
-        'email' => $email
-    ];
-    
+
+if($user[0]['email'] !== 'alessandro.ord@gmail.com'){
+
+    dd('autenticato');
+
+    login('auth', $user[0]['email']);
+
     header('location: /');
+    exit();
+} else {
+
+    login('admin', $user[0]['email']);
+
+    header('location: /admin-index');
     exit();
 }

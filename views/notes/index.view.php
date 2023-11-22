@@ -2,7 +2,7 @@
 <?php view('partials/head.php') ?>
 <?php view('partials/nav.php') ?>
 
-<main>
+<main class="min-h-screen bg-slate-900 text-slate-300">
     <div class="mx-auto max-w-7xl py-6 px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between">
             <h1 class="my-4 ">Hello, Welcome to the <b>notes</b> page.</h1>

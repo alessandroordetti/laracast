@@ -29,8 +29,8 @@
                                 <div>
                                     <ul>
                                         <?php foreach($latestUsers as $user): ?>
-                                            <li class="text-sm text-slate-500 mb-5 font-bold">
-                                                <?php echo "<p>" . $user['email'] . "</p>"; ?> 
+                                            <li class="text-sm text-slate-300 mb-5 font-bold">
+                                                <?php echo "<p>" . ucfirst($user['email']) . "</p>"; ?> 
                                             </li>
                                         <?php endforeach; ?>
                                     </ul>
@@ -54,7 +54,7 @@
                                     <!-- Text -->
                                     <div class="grow mb-5">
                                         <h2 class="text-xl text-slate-200 font-bold mb-1">Amazing Integration</h2>
-                                        <p class="text-sm text-slate-500">Quickly apply filters to refine your issues lists and create custom views.</p>
+                                        <p class="text-sm text-slate-300">Quickly apply filters to refine your issues lists and create custom views.</p>
                                     </div>
                                     <a class="inline-flex justify-center items-center whitespace-nowrap rounded-lg bg-slate-800 hover:bg-slate-900 border border-slate-700 px-3 py-1.5 text-sm font-medium text-slate-300 focus-visible:outline-none focus-visible:ring focus-visible:ring-indigo-300 dark:focus-visible:ring-slate-600 transition-colors duration-150" href="#0">
                                         <svg class="fill-slate-500 mr-2" xmlns="http://www.w3.org/2000/svg" width="16" height="14">
@@ -82,7 +82,7 @@
                                     <!-- Text -->
                                     <div class="grow mb-5">
                                         <h2 class="text-xl text-slate-200 font-bold mb-1">Amazing Integration</h2>
-                                        <p class="text-sm text-slate-500">Quickly apply filters to refine your issues lists and create custom views.</p>
+                                        <p class="text-sm text-slate-300">Quickly apply filters to refine your issues lists and create custom views.</p>
                                     </div>
                                     <a class="inline-flex justify-center items-center whitespace-nowrap rounded-lg bg-slate-800 hover:bg-slate-900 border border-slate-700 px-3 py-1.5 text-sm font-medium text-slate-300 focus-visible:outline-none focus-visible:ring focus-visible:ring-indigo-300 dark:focus-visible:ring-slate-600 transition-colors duration-150" href="#0">
                                         <svg class="fill-slate-500 mr-2" xmlns="http://www.w3.org/2000/svg" width="16" height="14">
