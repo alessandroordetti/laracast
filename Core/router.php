@@ -49,7 +49,6 @@ class Router {
     {
         $this->routes[array_key_last($this->routes)]['middleware'] = $key; // Prendiamo l'ultimo elemento nell'array routes e alla chiave 'middleware' diamo valore $key
 
-        /* dd($this->routes); */
         return $this;
     }
 
