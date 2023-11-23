@@ -34,3 +34,5 @@ $router->get('/admin-index', 'controllers/admin/index.php')->only('admin');
 
 /* RUN FAKE DATA QUERY */
 $router->get('/run-fake-migration', 'controllers/migrations/index.php')->only('admin');
+
+$router->get('/try-template', 'controllers/try-template.php');

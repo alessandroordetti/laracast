@@ -1,0 +1,4 @@
+<?php 
+
+
+template('welcome', $data);

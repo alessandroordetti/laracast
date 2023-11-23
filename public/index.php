@@ -9,9 +9,7 @@ require BASE_PATH . 'Core/TemplateEngine.php';
 
 require BASE_PATH . 'Core/functions.php'; // Richiedi il file functions per usarle in tutta l'app
 
-template('welcome', $data);
 
-require_once __DIR__ . '/../vendor/autoload.php';
 
 spl_autoload_register(function($class){
     $class = str_replace('\\', '/', $class);
