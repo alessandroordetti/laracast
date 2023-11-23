@@ -1,1 +1,16 @@
 /vendor/
+Since the early stages of my current vanilla-PHP project, I was looking for a way to build a maintainable and scalable notes app. The main features I wanted to develop in the first phases concerned the use of a service container and the implementation of a robust template engine.
+
+One notable example among the features hereby regards the possibility to generate fake datas and insert them into a myslq db to only the admin account.
+
+By incorporating the service container's resolve method, I have gathered an extra layer of control, allowing only privileged users (in this case an Admin user provided with a middleware to access specific routes) to execute specific functionalities, enhancing security and adhering to project-specific requirements.
+
+In addition, the setup required more advanced features to handle view files. A well-organised custom template engine plays a pivotal role in this regard. I managed to expand its functionality and handle more complex scenarios
+
+incorporating, for instance, features like:
+
+Layouts and Sections: Implementing layouts and sections allows for a more modular and reusable approach to view design.
+
+View Composers: By incorporating view composers, we can encapsulate logic specific to certain views, enhancing the maintainability of our codebase.
+
+The strategic use of a service container combined with an advanced template engine becomes a solution crafted to meet the specific demands of my project, ensuring scalability, maintainability, and a developer-friendly environment.
