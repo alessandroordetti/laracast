@@ -27,6 +27,7 @@ $router->post('/register', 'controllers/users/store.php')->only('guest');
 /* LOGIN ROUTES */
 $router->get('/login', 'controllers/login/index.php')->only('guest');
 $router->post('/login', 'controllers/login/store.php')->only('guest');
+$router->delete('/logout', 'controllers/login/destroy.php')->only('auth');
 
 /* ADMIN PANEL */
 $router->get('/admin-index', 'controllers/admin/index.php')->only('admin');

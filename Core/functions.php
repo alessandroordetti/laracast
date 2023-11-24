@@ -59,4 +59,17 @@ function setSessionVariable(string $sessionName, string $userEmail)
     if (!array_key_exists($sessionName, Middleware::MAP)) {
         throw new Exception("No match for middleware: $sessionName");
     }
+
+    session_regenerate_id(true);
+}
+
+function logout()
+{
+    $_SESSION = [];
+
+    session_destroy();
+
+    $params = session_get_cookie_params();
+
+    setcookie('PHPSESSID', '', time() - 3600, $params['path'], $params['domain'], $params['secure'], $params['httponly']);
 }
