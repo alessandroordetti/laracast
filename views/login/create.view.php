@@ -9,7 +9,7 @@
   </div>
 
   <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-    <form class="space-y-6" action="/login" method="POST">
+    <form class="space-y-6 mb-5" action="/login" method="POST">
       <div>
         <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Email address</label>
         <div class="mt-2">
@@ -31,8 +31,14 @@
       </div>
     </form>
 
-    
+    <?php if(isset($errors)) : ?>
+      <?php foreach ($errors as $e) { ?>
+        <?php echo "<h1 class='text-red-600'>{$e}</h1>" ?>
+      <?php } ?>
+    <?php endif; ?>
   </div>
+
+  
 </div>
 
 <?php view('partials/footer.php') ?>

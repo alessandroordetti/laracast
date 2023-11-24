@@ -1,6 +1,5 @@
 <?php 
 
-
 /* BASIC ROUTES */
 $router->get('/', 'controllers/index.php');
 $router->get('/about', 'controllers/about.php');
@@ -23,7 +22,7 @@ $router->delete('/note', 'controllers/notes/destroy.php');
 
 /* REGISTRATION ROUTES */
 $router->get('/register', 'controllers/users/register.php')->only('guest');
-$router->post('/register', 'controllers/users/store.php');
+$router->post('/register', 'controllers/users/store.php')->only('guest');
 
 /* LOGIN ROUTES */
 $router->get('/login', 'controllers/login/index.php')->only('guest');

@@ -27,7 +27,3 @@ function template($viewName, $data = []) {
     $final = ob_get_clean();
     echo $final;
 }
-
-$data = [
-    'name' => 'Alessandro'
-];
