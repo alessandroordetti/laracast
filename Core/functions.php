@@ -49,7 +49,7 @@ function view($path, $attributes= [])
     require base_path('views/' . $path);
 }
 
-function login(string $sessionName, string $userEmail)
+function setSessionVariable(string $sessionName, string $userEmail)
 {
     /* La variabile di sessione user è uguale ad un array associativo con chiave email e valore $user['email'] */
     $_SESSION[$sessionName] = [

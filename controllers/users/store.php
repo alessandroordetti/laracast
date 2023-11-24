@@ -33,12 +33,14 @@ $user = $db->query('SELECT * FROM users WHERE email = :email', [
 if($user){
     header('location: /');
 } else {
-    $db->query('INSERT INTO users (email, password) VALUES (:email, :password)',[
-        'email' => $email,
-        'password' => password_hash($password, PASSWORD_BCRYPT)
-    ]);
 
     if($email == 'alessandro.ord@gmail.com'){
+        $user = $db->query('INSERT INTO users (id, email, password) VALUES (:id, :email, :password)',[
+            'email' => $email,
+            'password' => password_hash($password, PASSWORD_BCRYPT),
+            'id' => 1
+        ]);
+
         $_SESSION['admin'] = [
             'email' => $email
         ];
@@ -46,10 +48,15 @@ if($user){
         header('location: /admin-index');
         exit();
     } else {
-        login('auth', $email);
+        $user = $db->query('INSERT INTO users (email, password) VALUES (:email, :password)',[
+            'email' => $email,
+            'password' => password_hash($password, PASSWORD_BCRYPT)
+        ]);
+
+        setSessionVariable('auth', $email);
+
+        header('location: /');
+        exit();
     }
-    
-    header('location: /');
-    exit();
 }
 
