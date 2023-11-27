@@ -49,16 +49,28 @@ function view($path, $attributes= [])
     require base_path('views/' . $path);
 }
 
-function setSessionVariable(string $sessionName, string $userEmail)
+function logSessionData() {
+    $dirPath = '../Session';
+    $fileName = 'session_' . session_id() . '.txt'; // Name the file using the session ID
+    $filePath = $dirPath . '/' . $fileName;
+
+    $sessionData = print_r($_SESSION, true); // Convert session data to string
+    file_put_contents($filePath, $sessionData); // Write to file
+} 
+
+function setSessionVariable(string $sessionName, string $userEmail, string $name = null)
 {
     /* La variabile di sessione user è uguale ad un array associativo con chiave email e valore $user['email'] */
     $_SESSION[$sessionName] = [
-        'email' => $userEmail
+        'email' => $userEmail,
+        'name'  => $name
     ];
 
     if (!array_key_exists($sessionName, Middleware::MAP)) {
         throw new Exception("No match for middleware: $sessionName");
     }
+
+    logSessionData();
 
     session_regenerate_id(true);
 }

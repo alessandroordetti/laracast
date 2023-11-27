@@ -58,7 +58,7 @@ if(!empty($errors)){
         /* If the user is an admin */
         } else {
         
-            setSessionVariable('admin', $user['email']);
+            setSessionVariable('admin', $user['email'], $user['name']);
         
             header('location: /admin-index');
             exit();
