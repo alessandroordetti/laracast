@@ -49,9 +49,9 @@ if(!empty($errors)){
 
         /* If the user is not an admin */
         if($user['email'] !== 'alessandro.ord@gmail.com'){
-        
-            setSessionVariable('auth', $user['email']);
-        
+            
+            setSessionVariable('auth', $user);
+    
             header('location: /');
             exit();
         

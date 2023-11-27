@@ -58,13 +58,10 @@ function logSessionData() {
     file_put_contents($filePath, $sessionData); // Write to file
 } 
 
-function setSessionVariable(string $sessionName, string $userEmail, string $name = null)
+function setSessionVariable(string $sessionName, $user)
 {
     /* La variabile di sessione user è uguale ad un array associativo con chiave email e valore $user['email'] */
-    $_SESSION[$sessionName] = [
-        'email' => $userEmail,
-        'name'  => $name
-    ];
+    $_SESSION[$sessionName] = $user;
 
     if (!array_key_exists($sessionName, Middleware::MAP)) {
         throw new Exception("No match for middleware: $sessionName");

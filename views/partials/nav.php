@@ -19,8 +19,8 @@
                 <div class="ml-4 flex items-center md:ml-6">
                     
                     <?php if (($_SESSION['auth'] ?? false)) : ?>
-                        <form class="px-1" action="/logout" method="POST">
-                            <input type="hidden" name="_method" value="DELETE">
+                        <form class="px-1" method="POST" action="/logout">
+                            <input type="hidden" name="_method" value="ERASE">
 
                             <button class="text-white" type="submit">Logout</button>
                         </form>

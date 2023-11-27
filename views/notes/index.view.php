@@ -18,16 +18,20 @@
             <?php foreach ($notes as $note) : ?>
                 <li class="my-8">
                     <div class="flex justify-between">
-                        <a href="/note?id=<?php echo $note['id'] ?>">
-                            <?php echo htmlspecialchars($note['body']) ?>
-                        </a>
-
-                        <!-- <span class="<?= $note['user_id'] == 1 ? 'underline ' : '' ?>"> Written by <?= $note['user_id'] == 1 ? 'You' : $note['name'] ?></span> -->
+                        <?php if (isset($_SESSION['auth']) && $_SESSION['auth']['id'] == $note['user_id']) { ?>
+                            <!-- Link to edit the note if the user is the owner -->
+                            <a href="/note/edit?id=<?php echo $note['id'] ?>">
+                                <?php echo htmlspecialchars($note['body']) ?>
+                            </a>
+                        <?php } else { ?>
+                            <!-- Just display the note if the user is not the owner -->
+                            <p><?php echo htmlspecialchars($note['body']) ?></p>
+                        <?php } ?>
                     </div>
-
                 </li>
             <?php endforeach ?>
         </ul>
+
 
     </div>
 </main>

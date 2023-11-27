@@ -25,7 +25,7 @@
                             <?php if(isset($errors['body'])) : ?>
                                 <?php dd ($errors['body']) ?>
                             <?php endif ?>
-                            <p class="mt-3 text-sm leading-6 text-gray-600">Here you can edit your note and update it.</p>
+                            <p class="mt-3 text-sm leading-6 text-white">Here you can edit your note and update it.</p>
                         </div>
                     </div>
                 </div>
