@@ -1,7 +1,7 @@
 <?php 
 
-dd($_POST);
-logout();
+dd('prova');
+logout(null);
 
 header('location: /');
 exit();

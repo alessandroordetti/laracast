@@ -50,11 +50,15 @@ function view($path, $attributes= [])
 }
 
 function logSessionData() {
+
     $dirPath = '../Session';
+
     $fileName = 'session_' . session_id() . '.txt'; // Name the file using the session ID
+    
     $filePath = $dirPath . '/' . $fileName;
 
     $sessionData = print_r($_SESSION, true); // Convert session data to string
+    
     file_put_contents($filePath, $sessionData); // Write to file
 } 
 

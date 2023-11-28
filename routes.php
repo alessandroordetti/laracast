@@ -1,40 +1,38 @@
 <?php 
 
 /* BASIC ROUTES */
-$router->get('/', 'controllers/index.php');
-$router->get('/about', 'controllers/about.php');
-$router->get('/contact', 'controllers/contact.php');
+$router->get('/', 'index.php');
+$router->get('/about', 'about.php');
+$router->get('/contact', 'contact.php');
 
 /* READ ROUTES */
-$router->get('/notes', 'controllers/notes/index.php');
-$router->get('/note', 'controllers/notes/show.php');
+$router->get('/notes', 'notes/index.php');
+$router->get('/note', 'notes/show.php');
 
 /* CREATE ROUTES */
-$router->get('/notes/create', 'controllers/notes/create.php');
-$router->post('/notes', 'controllers/notes/store.php');
+$router->get('/notes/create', 'notes/create.php');
+$router->post('/notes', 'notes/store.php');
 
 /* UPDATE ROUTES */
-$router->get('/note/edit', 'controllers/notes/edit.php');
-$router->patch('/note', 'controllers/notes/update.php');
+$router->get('/note/edit', 'notes/edit.php');
+$router->patch('/note', 'notes/update.php');
 
 /* DELETE ROUTE */
-$router->delete('/note', 'controllers/notes/destroy.php');
+$router->delete('/note', 'notes/destroy.php');
 
 /* REGISTRATION ROUTES */
-$router->get('/register', 'controllers/users/register.php')->only('guest');
-$router->post('/register', 'controllers/users/store.php')->only('guest');
+$router->get('/register', 'users/register.php')->only('guest');
+$router->post('/register', 'users/store.php')->only('guest');
 
 /* LOGIN ROUTES */
-$router->get('/login', 'controllers/login/index.php')->only('guest');
-$router->post('/login', 'controllers/login/store.php')->only('guest');
-$router->delete('/logout', 'controllers/login/destroy.php')->only('auth');
+$router->get('/login', 'login/index.php')->only('guest');
+$router->post('/login', 'login/store.php')->only('guest');
+$router->delete('/logout', 'login/destroy.php')->only('auth');
 
 /* ADMIN PANEL */
-$router->get('/admin-index', 'controllers/admin/index.php')->only('admin');
+$router->get('/admin-index', 'admin/index.php')->only('admin');
 
 /* RUN FAKE DATA QUERY */
-$router->get('/run-fake-migration', 'controllers/migrations/index.php')->only('admin');
+$router->get('/run-fake-migration', 'migrations/index.php')->only('admin');
 
-$router->get('/try-template', 'controllers/try-template.php');
-
-/* dd($router); */
+$router->get('/try-template', 'try-template.php');

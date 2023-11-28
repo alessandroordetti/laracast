@@ -20,9 +20,10 @@
                     
                     <?php if (($_SESSION['auth'] ?? false)) : ?>
                         <form class="px-1" method="POST" action="/logout">
-                            <input type="hidden" name="_method" value="ERASE">
+                            <input type="hidden" name="_method" value="DELETE">
 
-                            <button class="text-white" type="submit">Logout</button>
+                            <button class="text-white" name="action" value="delete" type="submit">Logout</button>
+
                         </form>
                     <?php endif; ?>
 

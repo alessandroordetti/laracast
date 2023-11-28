@@ -2,9 +2,7 @@
 
 namespace Core;
 
-use Core\App;
 use Core\Database;
-use Core\Fakedata;
 
 class FakeMigration 
 {

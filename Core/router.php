@@ -32,7 +32,7 @@ class Router {
 
     public function delete($uri, $controller)
     {
-        return $this->add('DELETE', $uri, $controller);
+        return $this->add("DELETE", $uri, $controller);
     }
 
     public function patch($uri, $controller)
@@ -64,7 +64,7 @@ class Router {
 
                 Middleware::resolve($route['middleware']);
                 
-                return require base_path($route['controller']);
+                return require base_path('Http/controllers/' . $route['controller']);
             }
         }   
 
