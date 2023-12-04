@@ -2,6 +2,7 @@
 
 use Core\App;
 use Core\Authenticator;
+use Core\Database;
 use Http\Forms\LoginForm;
 
 $authenticator = new Authenticator();
@@ -16,12 +17,12 @@ if (! $form->validate($email, $password)){
         'errors' => $form->errors()
     ]);
 } else {
-    $user = App::resolve('Core\Database')->query("SELECT * FROM users WHERE email = :email", [
+    $user = App::resolve(Database::class)->query("SELECT * FROM users WHERE email = :email", [
         ':email' => $email
     ])->find();
 
-    if(!$user){
-        $message = 'User not found!';
+    if(!$user || !password_verify($password, $user['password'])){
+        $message = 'User or password not correct!';
         return view('login/create.view.php', ['message' => $message]);
     }
     
