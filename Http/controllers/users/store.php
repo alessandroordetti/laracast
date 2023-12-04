@@ -4,6 +4,10 @@ use Core\App;
 use Core\Database;
 use Core\Validator;
 
+use Core\Authenticator;
+
+$authenticator = new Authenticator();
+
 
 $email = $_POST['email'];
 $password = $_POST['password'];
@@ -53,7 +57,7 @@ if($user){
             'password' => password_hash($password, PASSWORD_BCRYPT)
         ]);
 
-        setSessionVariable('auth', $email);
+        $auth = $authenticator->setSessionVariable('auth', $email);
 
         header('location: /');
         exit();

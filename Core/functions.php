@@ -1,7 +1,6 @@
 <?php 
 
 use Core\Response;
-use Core\Middleware\Middleware;
 
 function dd($value)
 {
@@ -62,27 +61,10 @@ function logSessionData() {
     file_put_contents($filePath, $sessionData); // Write to file
 } 
 
-function setSessionVariable(string $sessionName, $user)
-{
-    /* La variabile di sessione user è uguale ad un array associativo con chiave email e valore $user['email'] */
-    $_SESSION[$sessionName] = $user;
+function redirect($path) {
 
-    if (!array_key_exists($sessionName, Middleware::MAP)) {
-        throw new Exception("No match for middleware: $sessionName");
-    }
 
-    logSessionData();
-
-    session_regenerate_id(true);
-}
-
-function logout()
-{
-    $_SESSION = [];
-
-    session_destroy();
-
-    $params = session_get_cookie_params();
-
-    setcookie('PHPSESSID', '', time() - 3600, $params['path'], $params['domain'], $params['secure'], $params['httponly']);
+    header("location: {$path}");
+    
+    exit();
 }

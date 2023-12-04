@@ -36,6 +36,10 @@
         <?php echo "<h1 class='text-red-600'>{$e}</h1>" ?>
       <?php } ?>
     <?php endif; ?>
+
+    <?php if(isset($message)) : ?>
+      <?php echo "<h1 class='text-red-600'>{$message}</h1>" ?>
+    <?php endif ?>
   </div>
 
   

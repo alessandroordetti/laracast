@@ -1,12 +1,10 @@
 <?php 
 
-
 use Core\App;
-use Core\Database;
-use Core\Validator;
+use Core\Authenticator;
 use Http\Forms\LoginForm;
 
-$db = App::resolve(Database::class);
+$authenticator = new Authenticator();
 
 $email = $_POST['email'];
 $password = $_POST['password'];
@@ -17,49 +15,31 @@ if (! $form->validate($email, $password)){
     return view('login/create.view.php', [
         'errors' => $form->errors()
     ]);
-};
+} else {
+    $user = App::resolve('Core\Database')->query("SELECT * FROM users WHERE email = :email", [
+        ':email' => $email
+    ])->find();
 
-
-
-$user = $db->query("SELECT * FROM users WHERE email = :email", [
-    ':email' => $email
-])->find();
-
-
-/* If the user doesn't exist */
-if(!$user){
-    $errors['user'] = 'User or password not correct';
-
-    return view('login/create.view.php', [
-        'errors' => $errors
-    ]);
-}
-
-/* If the user exists and the password corresponds */
-if($user && password_verify($password, $user['password'])){
-
-    /* If the user is not an admin */
-    if($user['email'] !== 'alessandro.ord@gmail.com'){
-        
-        setSessionVariable('auth', $user);
-
-        header('location: /');
-        exit();
-    
-    /* If the user is an admin */
-    } else {
-    
-        setSessionVariable('admin', $user['email'], $user['name']);
-    
-        header('location: /admin-index');
-        exit();
-
-    
+    if(!$user){
+        $message = 'User not found!';
+        return view('login/create.view.php', ['message' => $message]);
     }
+    
+    if($email == 'alessandro.ord@gmail.com'){
+        $authenticator->setSessionVariable('admin', $email);
+        redirect('/admin-index');
+    } else {
+        $authenticator->setSessionVariable('auth', $email);
+        redirect('/');
+    }
+
+    
 }
 
-return view('login/create.view.php', [
-    'password' => $password
-]);
+
+
+
+
+
 
 

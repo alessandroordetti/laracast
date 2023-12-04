@@ -1,7 +1,8 @@
 <?php 
 
-dd('prova');
-logout(null);
+use Core\Authenticator;
+
+Authenticator::logout();
 
 header('location: /');
 exit();

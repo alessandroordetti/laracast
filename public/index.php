@@ -6,10 +6,7 @@ const BASE_PATH = __DIR__ . '/../'; // Corrissponde alla root del progetto
 
 require BASE_PATH . 'Core/TemplateEngine.php';
 
-
 require BASE_PATH . 'Core/functions.php'; // Richiedi il file functions per usarle in tutta l'app
-
-
 
 spl_autoload_register(function($class){
     $class = str_replace('\\', '/', $class);
