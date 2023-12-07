@@ -6,7 +6,7 @@
     <div class="mx-auto max-w-7xl py-6 px-4 sm:px-6 lg:px-8">
         <div class="text-slate-200 text-xl font-bold">
             <h1>Admin Panel</h1>
-            <p>Welcome back, <?php echo $_SESSION['admin'] ?? false ?></p>
+            <p>Welcome back, <?php echo $_SESSION['admin'] ?? 'Admin' ?></p>
         </div>
 
         <div class="relative font-inter antialiased">

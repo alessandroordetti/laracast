@@ -33,6 +33,9 @@ $router->delete('/admin-logout', 'login/destroy.php')->only('admin');
 /* ADMIN PANEL */
 $router->get('/admin-index', 'admin/index.php')->only('admin');
 
+/* SEND EMAIL */
+$router->post('/send-email', 'mail/index.php');
+
 /* RUN FAKE DATA QUERY */
 $router->get('/run-fake-migration', 'migrations/index.php')->only('admin');
 

@@ -7,21 +7,16 @@ use Core\Middleware\Middleware;
 
 class Authenticator
 {
-    public function attempt($email, $password)
+    public function attempt($email, $password, $name = false)
     {
         $user = App::resolve(Database::class)->query("SELECT * FROM users WHERE email = :email", [
             ':email' => $email
         ])->find();
 
-
         /* If the user doesn't exist */
         if(!$user){
-            $errors['user'] = 'User or password not correct';
-
-            return view('login/create.view.php');
+            return false;
         }
-
-        return 'okay';
 
 
         /* If the user exists and the password corresponds */
@@ -30,14 +25,14 @@ class Authenticator
             /* If the user is not an admin */
             if($user['email'] !== 'alessandro.ord@gmail.com'){
                 
-                $this->setSessionVariable('auth', $user);
+                $this->setSessionVariable('auth', $name);
 
                 return true;
             
             /* If the user is an admin */
             } else {
                 
-                $this->setSessionVariable('auth', $user);
+                $this->setSessionVariable('admin');
                 
                 return true;
             
@@ -47,10 +42,10 @@ class Authenticator
         return false;
     }
 
-    public function setSessionVariable(string $sessionName, $user)
+    public function setSessionVariable(string $sessionName)
     {
         /* La variabile di sessione user è uguale ad un array associativo con chiave email e valore $user['email'] */
-        $_SESSION[$sessionName] = $user;
+        $_SESSION[$sessionName] = $sessionName;
 
         if (!array_key_exists($sessionName, Middleware::MAP)) {
             throw new Exception("No match for middleware: $sessionName");

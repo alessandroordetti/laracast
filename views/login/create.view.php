@@ -31,6 +31,10 @@
       </div>
     </form>
 
+    <?php if(isset($error)) : ?>
+      <?php echo "<h1 class='text-red-600'>{$error}</h1>" ?>
+    <?php endif; ?>
+
     <?php if(isset($errors)) : ?>
       <?php foreach ($errors as $e) { ?>
         <?php echo "<h1 class='text-red-600'>{$e}</h1>" ?>
